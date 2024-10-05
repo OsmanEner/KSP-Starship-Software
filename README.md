@@ -30,3 +30,15 @@ function SeparationCommand {
     }
 }
 ```
+### Change Booster Previous Engine Mode
+```
+function PreviousBoosterMode {
+    toggle ag9.
+}
+```
+### Change Booster Next Engine Mode
+```
+function NextBoosterMode {
+    toggle ag10.
+}
+```
