@@ -19,9 +19,9 @@ function SeparationCheck {
 }
 ```
 ### Stage Separation Command
+These two can be defined as wanted in the code, just
+ensure that HSRRing is your separator part.
 ```
-// These two can be defined as wanted in the code, just
-// ensure that HSRRing is your separator part.
 set HSRRing to ship:partsdubbed("HSRDecoupler").
 
 function SeparationCommand {
