@@ -14,3 +14,11 @@ if ship:separators[7]:isdecoupled {
     print("w").
 }
 ```
+### Stage Separation Command
+```
+SET CurrentVessel to SHIP.
+set HSRRing to CurrentVessel:partsdubbed("HSRDecoupler").
+FOR part IN HSRRing{
+    part:getmodule("ModuleDecouple"):Doevent("decouple").
+}
+```
