@@ -20,6 +20,9 @@ function SeparationCheck {
 ```
 ### Stage Separation Command
 ```
+// These two can be defined as wanted in the code, just
+// ensure that CurrentVessel is a valid ship and
+// HSRRing is your separator part.
 SET CurrentVessel to SHIP.
 set HSRRing to CurrentVessel:partsdubbed("HSRDecoupler").
 
