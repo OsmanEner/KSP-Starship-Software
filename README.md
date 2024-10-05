@@ -20,9 +20,9 @@ function SeparationCheck {
 ```
 ### Stage Separation Command
 ```
+SET CurrentVessel to SHIP.
+set HSRRing to CurrentVessel:partsdubbed("HSRDecoupler").
 function SeparationCommand {
-    SET CurrentVessel to SHIP.
-    set HSRRing to CurrentVessel:partsdubbed("HSRDecoupler").
     FOR part IN HSRRing{
         part:getmodule("ModuleDecouple"):Doevent("decouple").
     }
