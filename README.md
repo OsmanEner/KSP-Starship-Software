@@ -1,5 +1,4 @@
 # Starship Launch Control System
-# VERSION : v1
 
 # Common Functions
 
