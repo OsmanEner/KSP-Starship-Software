@@ -1,5 +1,6 @@
 # Starship Launch Control System
 ## Common Functions
+! All of the set variables will be listed at the top of the lib .ks file, some might be repeated here but its just to know for what they are used.
 ### Ignite Engines
 ```
 set ShipSLEngines to ship:partstagged("ShipSL").
