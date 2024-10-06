@@ -32,13 +32,21 @@ function SeparationCommand {
 ```
 ### Change Booster Previous Engine Mode
 ```
-function PreviousBoosterMode {
-    toggle ag9.
+set BoosterCluster to ship:partsdubbed("BoosterCluster").
+
+function SwitchOverPreviousEngine {
+    FOR part IN BoosterCluster{
+        part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
+    }
 }
 ```
 ### Change Booster Next Engine Mode
 ```
-function NextBoosterMode {
-    toggle ag10.
+set BoosterCluster to ship:partsdubbed("BoosterCluster").
+
+function SwitchOverNextEngine {
+    FOR part IN BoosterCluster{
+        part:getmodule("ModuleTundraEngineSwitch"):doaction("next engine mode", true).
+    }
 }
 ```
