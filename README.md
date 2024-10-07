@@ -11,23 +11,14 @@ function SLShipIgnition {
     }
 }
 ```
-### Check for Stage Separation
-```
-function SeparationCheck {
-    if ship:separators[7]:isdecoupled {
-        print("w").
-    }
-}
-```
 ### Stage Separation Command
-These two can be defined as wanted in the code, just
-ensure that HSRRing is your separator part.
 ```
 set HSRRing to ship:partsdubbed("HSRDecoupler").
 
 function SeparationCommand {
     FOR part IN HSRRing{
         part:getmodule("ModuleDecouple"):Doevent("decouple").
+        set BoostbackBurnGuidance to true. // Use this variable to commence boostback guidance.
     }
 }
 ```
