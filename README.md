@@ -51,3 +51,17 @@ function SwitchOverNextEngine {
     }
 }
 ```
+### Catch Arms Closing
+```
+set Mechazilla to ship:partsdubbed("MechazillaArms").
+
+function CloseArms {
+    FOR part IN Mechazilla{
+        part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+        wait 4.
+        part:getmodule("ModuleSLEController"):doaction("Stop Arms", true).
+        wait 2.
+        part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+    }
+}
+```
