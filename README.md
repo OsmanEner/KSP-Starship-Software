@@ -1,4 +1,13 @@
 # Starship Launch Control System
+## Common Information
+
+### Launch Pad A Information
+```
+Pad Direction Information: Heading 0, Pitch 90, Roll 36
+Pad Direction Pitchover: Heading 90, Pitch [SET], Roll 0
+OLM Coordinates: Lat - -0.260225864690855 // Lon - -74.5053157223163 
+```
+
 ## Common Functions
 ! All of the set variables will be listed at the top of the lib .ks file, some might be repeated here but its just to know for what they are used.
 ### Ignite Engines
