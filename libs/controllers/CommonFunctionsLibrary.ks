@@ -6,7 +6,7 @@
 // Common Variables
 // --------------------------------------
 
-set BoostbackBurnGuidance to false.
+set stagesSeparated to false.
 
 set ShipSLEngines to ship:partstagged("ShipSL").
 set ShipVACEngines to ship:partstagged("ShipVAC").
@@ -47,7 +47,7 @@ function SwitchOverNextEngine {
 function SeparationCommand {
     FOR part IN HSRRing{
         part:getmodule("ModuleDecouple"):Doevent("decouple").
-        set BoostbackBurnGuidance to true. // Use this variable to commence boostback guidance.
+        set stagesSeparated to true. // Tracks whether or not the ship & booster have separated .
     }
 }
 
