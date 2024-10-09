@@ -51,10 +51,12 @@ function SeparationCommand {
     }
 }
 
-function StarshipStaticFireShutdown {
+function StarshipShutdown {
+    lock throttle to 0.2.
     for Engine in ShipSLEngines {
         Engine:shutdown().
     }
+    wait 2.
     for Engine in ShipVACEngines {
         Engine:shutdown().
     }
