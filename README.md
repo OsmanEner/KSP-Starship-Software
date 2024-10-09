@@ -73,13 +73,39 @@ function SwitchOverNextEngine {
 ```kos
 set Mechazilla to ship:partsdubbed("MechazillaArms").
 
-function CloseArms {
-    for part in Mechazilla {
+function MechazillaCatchClose {
+    FOR part IN Mechazilla{
         part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+        part:getmodule("ModuleSLEController"):setfield("Target Speed", 7).
         wait 4.
         part:getmodule("ModuleSLEController"):doaction("Stop Arms", true).
+        part:getmodule("ModuleSLEController"):setfield("Target Speed", 2).
         wait 2.
         part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+    }
+}
+```
+
+### Different Vessel Communications Receive
+
+```kos
+when not ship:messages:empty then {
+  set received to ship:messages:pop.
+  print received:content.
+  MechazillaCatchClose().
+}
+```
+
+### Different Vessel Communications Send
+
+```kos
+set CatchCommunications to vessel("[SpaceX] Booster 1 Pad").
+set EstablishCatchCommunications to CatchCommunications:connection.
+set message to "Arms".
+
+if EstablishCatchCommunications:isconnected {
+    if EstablishCatchCommunications:sendmessage(message) {
+        print message.
     }
 }
 ```
