@@ -62,7 +62,7 @@ function StarshipShutdown {
     }
 }
 
-function StarshipStaticFireSafing {
+function StarshipSafing {
     for Engine in StarshipBody {
         Engine:activate().
     }
