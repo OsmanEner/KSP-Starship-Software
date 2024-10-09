@@ -84,7 +84,7 @@ function WaterDelugeShutdown {
     }
 }
 
-function CloseArms {
+function MechazillaCatchClose {
     FOR part IN Mechazilla{
         part:getmodule("ModuleSLEController"):Doevent("Close Arms").
         part:getmodule("ModuleSLEController"):setfield("Target Speed", 7).
