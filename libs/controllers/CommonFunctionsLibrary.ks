@@ -14,6 +14,8 @@ set BoosterCluster to ship:partstagged("BoosterCluster").
 set HSRRing to ship:partsdubbed("HSRDecoupler").
 set StarshipBody to ship:partsdubbed("StarshipBody").
 set BoosterBody to ship:partsdubbed("BoosterBody").
+set WaterDeluge to ship:partsdubbed("WaterDeluge").
+set Mechazilla to ship:partsdubbed("MechazillaArms").
 
 // Functions Library
 // --------------------------------------
@@ -50,12 +52,11 @@ function SeparationCommand {
 }
 
 function StarshipStaticFireShutdown {
-    for Engine in ShipVACEngines {
-        Engine:deactivate().
-    }
-    wait 1.
     for Engine in ShipSLEngines {
-        Engine:deactivate().
+        Engine:shutdown().
+    }
+    for Engine in ShipVACEngines {
+        Engine:shutdown().
     }
 }
 
@@ -68,5 +69,30 @@ function StarshipStaticFireSafing {
         Engine:activate().
     }
 }
+
+function WaterDelugeActivation {
+    for Engine in WaterDeluge {
+        Engine:activate().
+    }
+}
+
+function WaterDelugeShutdown {
+    for Engine in WaterDeluge {
+        Engine:shutdown().
+    }
+}
+
+function CloseArms {
+    FOR part IN Mechazilla{
+        part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+        wait 4.
+        part:getmodule("ModuleSLEController"):doaction("Stop Arms", true).
+        wait 2.
+        part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+    }
+}
+
+
+
 
 
