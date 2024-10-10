@@ -12,8 +12,8 @@ set ShipSLEngines to ship:partstagged("ShipSL").
 set ShipVACEngines to ship:partstagged("ShipVAC").
 set BoosterCluster to ship:partstagged("BoosterCluster").
 set HSRRing to ship:partsdubbed("HSRDecoupler").
-set StarshipBody to ship:partsdubbed("StarshipBody").
-set BoosterBody to ship:partsdubbed("BoosterBody").
+set StarshipBody to ship:partsdubbed("StarshipFlightSoftware").
+set BoosterBody to ship:partsdubbed("BoosterFlightSoftware").
 set WaterDeluge to ship:partsdubbed("WaterDeluge").
 set Mechazilla to ship:partsdubbed("MechazillaArmsSoftware").
 
