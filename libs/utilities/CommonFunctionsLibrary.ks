@@ -80,7 +80,7 @@ function BoosterSafing {
     }
     wait 15.
         for Engine in StarshipBody {
-        Engine:activate().
+        Engine:shutdown().
     }
 }
 
@@ -90,7 +90,7 @@ function StarshipSafing {
     }
     wait 15.
         for Engine in StarshipBody {
-        Engine:activate().
+        Engine:shutdown().
     }
 }
 

@@ -46,19 +46,7 @@ until mode = 0 {
 
             if terminalCountdown = 2 {
                 SuperHeavyIgnition().
-                print "Booster 3 Engines Activation".
-                print "________________________________________".
-            }
-
-            if terminalCountdown = 1 {
-                SwitchOverPreviousEngine().
-                print "Booster 10 Engines Activation".
-                print "________________________________________".
-            }
-
-            if terminalCountdown = 0 {
-                SwitchOverPreviousEngine().
-                print "Booster 20 Engines Activation".
+                print "Booster Engines Activation".
                 print "________________________________________".
             }
 
