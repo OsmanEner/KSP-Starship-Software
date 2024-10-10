@@ -15,7 +15,7 @@ set HSRRing to ship:partsdubbed("HSRDecoupler").
 set StarshipBody to ship:partsdubbed("StarshipBody").
 set BoosterBody to ship:partsdubbed("BoosterBody").
 set WaterDeluge to ship:partsdubbed("WaterDeluge").
-set Mechazilla to ship:partsdubbed("MechazillaArms").
+set Mechazilla to ship:partsdubbed("MechazillaArmsSoftware").
 
 // Functions Library
 // --------------------------------------
