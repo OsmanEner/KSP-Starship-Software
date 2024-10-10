@@ -44,6 +44,18 @@ function SwitchOverNextEngine {
     }
 }
 
+function SuperHeavyIgnition {
+    for Engine in BoosterCluster {
+        Engine:activate().
+    }
+}
+
+function SuperHeavyShutdown {
+    for Engine in BoosterCluster {
+        Engine:shutdown().
+    }
+}
+
 function SeparationCommand {
     FOR part IN HSRRing{
         part:getmodule("ModuleDecouple"):Doevent("decouple").
@@ -59,6 +71,16 @@ function StarshipShutdown {
     wait 2.
     for Engine in ShipVACEngines {
         Engine:shutdown().
+    }
+}
+
+function BoosterSafing {
+    for Engine in BoosterBody {
+        Engine:activate().
+    }
+    wait 15.
+        for Engine in StarshipBody {
+        Engine:activate().
     }
 }
 
