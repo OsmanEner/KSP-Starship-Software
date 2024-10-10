@@ -88,11 +88,16 @@ function MechazillaCatchClose {
     FOR part IN Mechazilla{
         part:getmodule("ModuleSLEController"):Doevent("Close Arms").
         part:getmodule("ModuleSLEController"):setfield("Target Speed", 7).
-        wait 4.
+        wait 1.
+        part:getmodule("ModuleSLEController"):setfield("Target Speed", 9).
+        wait 1.
+        part:getmodule("ModuleSLEController"):setfield("Target Speed", 5).
+        wait 1.
+        part:getmodule("ModuleSLEController"):setfield("Target Speed", 3).
         part:getmodule("ModuleSLEController"):doaction("Stop Arms", true).
-        part:getmodule("ModuleSLEController"):setfield("Target Speed", 2).
         wait 2.
         part:getmodule("ModuleSLEController"):Doevent("Close Arms").
+        part:getmodule("ModuleSLEController"):setfield("Target Speed", 2).
     }
 }
 
