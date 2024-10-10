@@ -11,6 +11,8 @@ importLib("CommonFunctionsLibrary").
 // --------------------------------------
 
 set terminalCountdown to 40.
+set ag1 to false.
+set ag2 to false.
 
 // Static Fire Function
 // --------------------------------------
