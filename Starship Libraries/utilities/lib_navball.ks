@@ -3,7 +3,6 @@
 // Lic. MIT
 
 @lazyglobal off.
-@clobberbuiltins off.
 
 function east_for {
   parameter ves is ship.
