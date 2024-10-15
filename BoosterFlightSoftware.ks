@@ -23,6 +23,8 @@ declare global expectedModeOutput is 0.
 set sendProcessor to processor("MechazillaArmsSoftware").
 set sendContent to "Stage1_Communications".
 set BoosterDataLogs to true.
+set CurrentGuidanceMode to "Mode Awaiting".
+set UpcomingGuidanceMode to "Mode 1".
 
 set terminal:height to 41.
 set terminal:width to 60.
