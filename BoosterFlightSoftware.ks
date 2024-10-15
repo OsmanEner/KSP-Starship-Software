@@ -1,9 +1,6 @@
 // Booster Flight Software
 // --------------------------------------
 
-runoncepath("0:/libs/utilities/importLib").
-importLib("dataController").
-
 // Initialization and Variables
 // --------------------------------------
 
@@ -18,13 +15,14 @@ set firstTWR to 1.51.
 set endAlt to (160000 / firstTWR).
 set finalPitch to 5.
 set lzlatlng to kerbin:geopositionlatlng(-20, -73). // Change for re-entry coordinates
+lock throttle to 1.
+set StarshipTerminalCountdown to 10.
+set mode to 0.
 
 declare global expectedModeOutput is 0.
 set sendProcessor to processor("MechazillaArmsSoftware").
 set sendContent to "Stage1_Communications".
 set BoosterDataLogs to true.
-set CurrentGuidanceMode to "Mode Awaiting".
-set UpcomingGuidanceMode to "Mode 1".
 
 set terminal:height to 41.
 set terminal:width to 60.
@@ -40,31 +38,40 @@ set ag8 to false.
 set ag9 to false.
 set ag10 to false.
 
+set SteelPlateWaterDeluge to ship:partsdubbed("WaterDeluge").
+set BoosterEngines to ship:partstagged("BoosterCluster").
+
 // Data Logs
 // --------------------------------------
 
 
 until false {
     wait 1.
-    if Mode1 {
+
+    if mode = 0 {
+        set CurrentGuidanceMode to "Mode Awaiting".
+        set UpcomingGuidanceMode to "Mode 1".
+    }
+
+    if mode = 1 {
         set CurrentGuidanceMode to "Mode 1".
         set UpcomingGuidanceMode to "Mode 2".
-    } else if Mode2 {
+    } else if mode = 2 {
         set CurrentGuidanceMode to "Mode 2".
         set UpcomingGuidanceMode to "Mode 3".
-    } else if Mode3 {
+    } else if mode = 3 {
         set CurrentGuidanceMode to "Mode 3".
         set UpcomingGuidanceMode to "Mode 4".
-    } else if Mode4 {
+    } else if mode = 4 {
         set CurrentGuidanceMode to "Mode 4".
         set UpcomingGuidanceMode to "Mode 5".
-    } else if Mode5 {
+    } else if mode = 5 {
         set CurrentGuidanceMode to "Mode 5".
         set UpcomingGuidanceMode to "Mode 5".
-    } else if Mode6 {
+    } else if mode = 6 {
         set CurrentGuidanceMode to "Mode 6".
         set UpcomingGuidanceMode to "Mode 7".
-    } else if Mode7 {
+    } else if mode = 7 {
         set CurrentGuidanceMode to "Mode 7".
         set UpcomingGuidanceMode to "Flight Finalization".
     }
@@ -112,3 +119,39 @@ until BoosterDataLogs = false {
     print "| [BOOSTER GUIDANCE CURRENT MODE] " + CurrentGuidanceMode at(0,38).
     print "| [BOOSTER CURRENT EVENT] " + UpcomingGuidanceMode at(0,39).
 }
+
+// Booster Terminal Countdown
+
+wait until ag1.
+set mode to 1.
+
+until mode = 0 {
+    if mode = 1 {
+        until StarshipTerminalCountdown = -3 {
+            set StarshipTerminalCountdown to StarshipTerminalCountdown -1.
+            wait 1.
+
+            if abort {
+                lock throttle to 0.
+                shutdown.
+            }
+
+            if StarshipTerminalCountdown = 5 {
+                for Engine in SteelPlateWaterDeluge {
+                    Engine:activate().
+                }
+            }
+
+            if StarshipTerminalCountdown = 2 {
+                for Engine in BoosterEngines {
+                    Engine:activate().
+                }
+            }
+
+            if StarshipTerminalCountdown = -2 {
+                if sendProcessor:connection:sendmessage(sendContent).
+            }
+        }
+    }
+}
+
