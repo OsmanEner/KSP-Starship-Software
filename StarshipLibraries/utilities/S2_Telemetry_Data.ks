@@ -8,18 +8,18 @@ importLib("lib_navball").
 // Initialization and Variables
 // --------------------------------------
 
-BoosterDataLogs().
+StarshipDataLogs().
 
 pitch_for().
 compass_for().
 roll_for().
 
-function BoosterDataLogs {
-    declare global MissionName is "Starship Flight 1".
+function StarshipDataLogs {
+    declare global MissionShipName is "Starship Flight 1".
 
     if addons:tr:available {
         if addons:tr:hasimpact {
-            declare global ImpactPos to addons:tr:impactpos.
+            declare global ImpactPosShip to addons:tr:impactpos.
         }
     }
 
@@ -28,7 +28,7 @@ function BoosterDataLogs {
         print "|───[SPACEX STARSHIP KSP PROGRAM]───|" at(0,1).
         print "_____________________________________" at(0,2).
 
-        print "| [MISSION NAME] " + MissionName at(0,5).
+        print "| [MISSION NAME] " + MissionShipName at(0,5).
         print "| [CURRENT T+] " + missionTime at(0,6).
 
         print "|───[FLIGHT ORBIT]───|" at(0,8).
@@ -58,7 +58,7 @@ function BoosterDataLogs {
         print "| [BOOSTER GPS LATITUDE] " + geoPosition:lat at(0,32).
         print "| [BOOSTER GPS LONGITUDE] " + geoPosition:lng at(0,33).
 
-        print "| [BOOSTER GPS TRAJECTORY] " + ImpactPos at(0,35).
+        print "| [BOOSTER GPS TRAJECTORY] " + ImpactPosShip at(0,35).
 
         print "_____________________________________" at(0,39).
     }
