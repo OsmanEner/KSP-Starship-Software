@@ -15,7 +15,6 @@ function stagingController {
 
     local HSRRing to ship:partsdubbed("HSRDecoupler").
     local BoosterEngines to ship:partstagged("BoosterCluster").
-    local GridFins to ship:partsdubbed("GridFins").
     local ShipSLEngines to ship:partstagged("ShipSL").
     local ShipVACEngines to ship:partstagged("ShipVAC").
 
