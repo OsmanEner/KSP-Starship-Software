@@ -8,7 +8,7 @@ function stagingController {
 
     local SeparationStatus to false.
     local StagingContent to "Hotstage_Controller".
-    local SoftwareProcessor to processor("BoosterFlightSoftware").
+    local SoftwareProcessor to processor("StarshipFlightSoftware").
 
     lock steering to heading(90, 30, -90).
     lock throttle to 0.4.
