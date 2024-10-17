@@ -46,9 +46,9 @@ function BoosterDataLogs {
         print "| [BOOSTER THROTTLE] " + throttle at(0,20).
         print "| [BOOSTER ALTITUDE] " + alt:radar at(0,21).
         print "| [BOOSTER VELOCITY] " + ship:airspeed at(0,22).
-        print "| [BOOSTER PITCH] " + pitch_for() at(0,23).
-        print "| [BOOSTER YAW] " + compass_for() at(0,24).
-        print "| [BOOSTER ROLL] " + roll_for() at(0,25).
+        print "| [BOOSTER PITCH] " + pitch_for(ship) at(0,23).
+        print "| [BOOSTER YAW] " + compass_for(ship) at(0,24).
+        print "| [BOOSTER ROLL] " + roll_for(ship) at(0,25).
         print "| [BOOSTER DELTA-V] " + ship:deltav:current at(0,26).
 
         print "|───[FLIGHT SECONDARY INFO]───|" at(0,28).

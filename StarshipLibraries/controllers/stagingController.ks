@@ -33,17 +33,14 @@ function stagingController {
     }
 
     wait 1.
+    SoftwareProcessor:activate().
+    if SoftwareProcessor:connection:sendmessage(StagingContent).
     FOR part IN HSRRing{
         part:getmodule("ModuleDecouple"):Doevent("decouple").
         for Engine in ShipSLEngines {
             Engine:activate().
         }
         set SeparationStatus to true.
-    }
-
-    if SeparationStatus = true {
-        SoftwareProcessor:activate().
-        if SoftwareProcessor:connection:sendmessage(StagingContent).
     }
 
     function hotstagingComplete {
