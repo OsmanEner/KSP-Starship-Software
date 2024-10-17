@@ -1,0 +1,69 @@
+
+/* Add font files for Oxanium */
+@font-face {
+  font-family: 'Oxanium';
+  src: url('fonts/oxanium.woff2') format('woff2'),
+       url('fonts/oxanium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --font-family-oxanium: 'Oxanium', sans-serif;
+}
+
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.rectangle-1-2 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1920px;
+  height: 1080px;
+  background-color: rgba(66, 66, 66, 1);
+  opacity: 0;
+}
+
+.text-3 {
+  position: absolute;
+  left: 65.73455810546875px;
+  top: 42.543243408203125px;
+  width: 263px;
+  height: 40px;
+  font-size: 24px;
+  font-family: var(--font-family-oxanium);
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.text-4 {
+  position: absolute;
+  left: 112.73455810546875px;
+  top: 92.97723388671875px;
+  width: 169px;
+  height: 40px;
+  font-size: 48px;
+  font-family: var(--font-family-oxanium);
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.frame-1-1 {
+  position: absolute;
+  left: -1072.9354248046875px;
+  top: -542.0230102539062px;
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
