@@ -17,6 +17,7 @@ function terminalController {
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
+    local TowerQD to ship:partsdubbed("QuickDisconnect").
 
     until LaunchStatus = true {
         wait 1.
