@@ -4,7 +4,7 @@
 // Hot-Staging Controller
 // ---------------------------------
 
-function stagingController {
+function terminalController {
 
     declare global LaunchStatus to false.
     local StagingGroundContent to "Stage0_Controller".
@@ -74,14 +74,14 @@ function stagingController {
         }
     }
 
-    function hotstagingComplete {
+    function terminalComplete {
         if LaunchStatus = true {
             wait 0.5.
             return true.
         }
     }
 
-    function completed { return hotstagingComplete(). }
+    function completed { return terminalComplete(). }
 
     return lexicon(
         "completed", completed@

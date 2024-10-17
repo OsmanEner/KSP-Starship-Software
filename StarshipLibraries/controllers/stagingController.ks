@@ -18,7 +18,6 @@ function stagingController {
     local ShipSLEngines to ship:partstagged("ShipSL").
     local ShipVACEngines to ship:partstagged("ShipVAC").
 
-    wait 1.
     for part in BoosterEngines {
         part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
         wait 1.5.
