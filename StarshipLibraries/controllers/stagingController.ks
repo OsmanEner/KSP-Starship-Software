@@ -45,11 +45,11 @@ function stagingController {
     if SeparationStatus = true {
         SoftwareProcessor:activate().
         if SoftwareProcessor:connection:sendmessage(StagingContent).
-
     }
 
     function hotstagingComplete {
         if SeparationStatus = true {
+            wait 0.5.
             return true.
         }
     }
