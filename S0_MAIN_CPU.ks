@@ -2,13 +2,13 @@
 // Mechazilla Flight Software
 // ---------------------------------
 
+// ("[SpaceX] Integrated Flight 1 Base"). vessel name
 
 // ---------------------------------
 // Variables and Functions
 // ---------------------------------
 
 set Mechazilla to ship:partsdubbed("MechazillaFlightSoftware").
-set mode to 1.
 
 function MechazillaCatchClose {
     FOR part IN Mechazilla{
@@ -22,15 +22,10 @@ function MechazillaCatchClose {
     }
 }
 
-until mode = 0 {
-    if mode = 1 {
-        when not ship:messages:empty then {
-            set received to ship:messages:pop.
-            print received:content.
-            set mode to 2.
-        }
-    }
-    if mode = 2 {
-        MechazillaCatchClose().
-    }
+when not ship:messages:empty then {
+    set received to ship:messages:pop.
+    print received:content.
+    MechazillaCatchClose().
 }
+
+until false.
