@@ -31,7 +31,7 @@ function ascentController {
 
         lock steering to heading (90,pitchAim,-90).
 
-        if ship:altitude > 39000 {
+        if ship:altitude > 40000 {
             set ascentStatus to true.
             set gravityTurnStatus to false.
         }
