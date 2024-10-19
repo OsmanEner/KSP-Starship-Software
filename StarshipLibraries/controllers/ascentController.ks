@@ -1,7 +1,7 @@
 @lazyGlobal off.
 
 // ---------------------------------
-// Hot-Staging Controller
+// Ascent Controller
 // ---------------------------------
 
 function ascentController {
