@@ -46,8 +46,6 @@ function BoosterDataLogs {
         print "| [BOOSTER GPS LATITUDE] " + geoPosition:lat at(0,32).
         print "| [BOOSTER GPS LONGITUDE] " + geoPosition:lng at(0,33).
 
-        print "| [BOOSTER GPS TRAJECTORY] " + ImpactPos at(0,35).
-
         print "_____________________________________" at(0,39).
     }
 }
