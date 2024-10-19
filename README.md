@@ -10,7 +10,7 @@ This repository contains kOS scripts for the launch control system of a Starship
 ### Launch Pad A Information
 
 ```
-Pad Direction Information: Heading 0, Pitch 90, Roll 36
+Pad Direction Information: Heading 20, Pitch 90, Roll 20
 Pad Direction Pitchover: Heading 90, Pitch [SET], Roll 0
 OLM Coordinates: Lat -0.260225864690855, Lon -74.5053157223163
 ```
