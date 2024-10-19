@@ -17,7 +17,6 @@ importLib("boostbackController").
 // Super Heavy Ascent Modes
 // ---------------------------------
 
-
 // TODO : Ascent
 
 // ---------------------------------
