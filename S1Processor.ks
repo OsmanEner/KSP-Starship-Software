@@ -2,7 +2,7 @@
 // Stage 1 Super Heavy Software
 // ---------------------------------
 
-runoncepath("0:/StarshipLibraries/utilities/importLibs").
+runoncepath("0:/StarshipLibraries/utilities/importLib").
 importLib("landingDataModel").
 importLib("hoverSlamModel").
 importLib("glideController").

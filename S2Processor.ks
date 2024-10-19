@@ -2,7 +2,7 @@
 // Starship Flight Software
 // ---------------------------------
 
-runoncepath("0:/StarshipLibraries/utilities/importLibs").
+runoncepath("0:/StarshipLibraries/utilities/importLib").
 importLib("tguidanceController").
 
 importLib("S1_Telemetry_Data").
