@@ -17,7 +17,6 @@ function terminalController {
     local minimumPeriapsis is -50000.
 
     lock steering to heading(90,0,-90).
-    lock throttle to 0.7.
 
     until ShipAscentStatus = true {
         wait 0.5.

@@ -7,13 +7,10 @@
 function terminalController {
 
     declare global LaunchStatus to false.
-    local StagingGroundContent to "Stage0_Controller".
-    local SoftwareGroundProcessor to processor("MechazillaFlightSoftware").
     local terminalCountdown to 10.
     local abortMode to false.
 
     lock steering to heading(36, 90, 36).
-    lock throttle to 0.7.
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
@@ -69,9 +66,10 @@ function terminalController {
 
         when terminalCountdown = -2 then {
             // TO DO: qd and bqd retraction
-            SoftwareGroundProcessor:activate().
-            if SoftwareGroundProcessor:connection:sendmessage(StagingGroundContent).
             set LaunchStatus to true.
+            for Engine in WaterDeluge {
+                Engine:shutdown().
+            }
         }
     }
 

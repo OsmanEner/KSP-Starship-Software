@@ -15,7 +15,6 @@ function ascentController {
     local finalPitch to 5.
 
     lock steering to heading(36, 81, 36).
-    lock throttle to 0.7.
 
     set steeringManager:maxstoppingtime to 20.
     set steeringManager:TORQUEEPSILONMAX to 0.05.

@@ -13,21 +13,30 @@ importLib("tguidanceController").
 importLib("terminalController").
 importLib("boostbackController").
 
+importLib("S1_Telemetry_Data").
+
 // ---------------------------------
 // Super Heavy Ascent Modes
 // ---------------------------------
 
-// TODO : Ascent
+wait until ag1.
 
+local terminalMode is terminalController().
+lock throttle to 0.7.
+wait until terminalMode["completed"]().
+
+local ascentMode is ascentController().
+lock throttle to 0.7.
+wait until ascentMode["completed"]().
+
+local hotstageMode is stagingController().
+lock throttle to 0.7.
+wait until hotstageMode["completed"]().
 
 
 // ---------------------------------
 // Super Heavy Landing Modes
 // ---------------------------------
-
-// !! FOR OSMAN !! --> Could you handle ascent to landing modes transition?
-set AscentComplete to false.
-wait until AscentComplete.
 
 // Constants and initial setup
 set LANDING_SITE to latlng(-0.0972080884740584, -74.5576970966038).
@@ -150,7 +159,7 @@ function BoostbackPhase {
 
     local boostback is boostbackController(landingData, 5, 1000, 0.6).
     lock steering to boostback["getSteering"]().
-    wait 8. // Safety wait
+    wait 4. // Safety wait
     lock throttle to boostback["getThrottle"]().
 
     local boostbackEngineSwitched to false.
