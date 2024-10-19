@@ -1,7 +1,7 @@
 @lazyGlobal off.
 
 // ---------------------------------
-// Hot-Staging Controller
+// Terminal Countdown Controller
 // ---------------------------------
 
 function terminalController {

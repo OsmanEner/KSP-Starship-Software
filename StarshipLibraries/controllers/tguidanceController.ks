@@ -1,7 +1,7 @@
 @lazyGlobal off.
 
 // ---------------------------------
-// Hot-Staging Controller
+// Terminal Guidance Controller
 // ---------------------------------
 
 function terminalController {
