@@ -204,11 +204,11 @@ function BoostbackPhase {
 function GlidingPhase {
     set glide to glideController(landingData, 20, 1.2).
     lock steering to heading(90, 90, 36).
-    ToggleGridfins(true).
 
     when alt:radar <= 55000 then { rcs off. }
 
     wait until alt:radar <= 30000.
+    ToggleGridfins(true).
     brakes on.
     lock steering to glide["getSteering"]().
 
@@ -219,6 +219,17 @@ function GlidingPhase {
 }
 
 function LandingPhase {
+    // Catch message handling, sending to the stage 0 CPU
+    set CatchCommunications to vessel("[SpaceX] Integrated Flight 1 Base").
+    set EstablishCatchCommunications to CatchCommunications:connection.
+    set message to "Arms".
+
+    if EstablishCatchCommunications:isconnected {
+        if EstablishCatchCommunications:sendmessage(message) {
+            print message.
+        }
+    }
+
     lock throttle to LandingThrottle().
     lock SteeringVector to lookdirup(-velocity:surface, ApproachVector).
     lock steering to SteeringVector.
