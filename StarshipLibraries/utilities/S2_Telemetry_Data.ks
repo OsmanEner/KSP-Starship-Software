@@ -2,9 +2,6 @@
 // Booster Telemetry Software
 // --------------------------------------
 
-runoncepath("0:/StarshipLibraries/utilities/importLib").
-importLib("lib_navball").
-
 // Initialization and Variables
 // --------------------------------------
 
