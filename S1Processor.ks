@@ -1,11 +1,26 @@
-// Import required libraries
-runoncepath("0:/libraries/utilities/importLibs").
+// ---------------------------------
+// Stage 1 Super Heavy Software
+// ---------------------------------
+
+runoncepath("0:/StarshipLibraries/utilities/importLibs").
 importLib("landingDataModel").
 importLib("hoverSlamModel").
 importLib("glideController").
 importLib("landingController").
 importLib("ascentController").
+importLib("stagingController").
+importLib("tguidanceController").
+importLib("terminalController").
 importLib("boostbackController").
+
+// ---------------------------------
+// Super Heavy Ascent Modes
+// ---------------------------------
+
+
+// ---------------------------------
+// Super Heavy Landing Modes
+// ---------------------------------
 
 // Constants and initial setup
 set LANDING_SITE to latlng(-0.0972080884740584, -74.5576970966038).
