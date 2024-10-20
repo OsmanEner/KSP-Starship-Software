@@ -1,19 +1,17 @@
-@lazyGlobal off.
+@lazyglobal off.
 
 // ---------------------------------
 // Ascent Controller
 // ---------------------------------
 
 function ascentController {
+    local ascentStatus is false.
+    local gravityTurnStatus is false.
 
-
-    local ascentStatus to false.
-    local gravityTurnStatus to false.
-
-    local pitchAim to 1.
-    local firstTWR to 1.51.
-    local endAlt to (160000 / firstTWR).
-    local finalPitch to 5.
+    local pitchAim is 90.
+    local firstTWR is 1.51.
+    local endAlt is (160000 / firstTWR).
+    local finalPitch is 5.
 
     set steeringManager:maxstoppingtime to 20.
     set steeringManager:TORQUEEPSILONMAX to 0.05.
@@ -21,30 +19,31 @@ function ascentController {
     lock steering to heading(20, 89, 20).
 
     wait until ship:altitude > 400.
-    lock steering to heading (90,90,-90).
+    lock steering to heading(90, 90, -90).
     set steeringManager:maxstoppingtime to 15.
     wait 2.
-    set gravityTurnStatus to true.
     set steeringManager:maxstoppingtime to 2.
 
-    until gravityTurnStatus = true {
-        wait 0.01.
-        set pitchAim to (max(finalPitch, 90 * (1 - (ship:altitude / endAlt)))).
-        print pitchAim.
+    until ascentStatus {
+        if not gravityTurnStatus and ship:altitude > 400 {
+            set gravityTurnStatus to true.
+        }
 
-        lock steering to heading (90,pitchAim,-90).
+        if gravityTurnStatus {
+            set pitchAim to max(finalPitch, 90 * (1 - (ship:altitude / endAlt))).
+            print "Pitch: " + round(pitchAim, 2) at (0, 1).
+            lock steering to heading(90, pitchAim, -90).
+        }
 
         if ship:altitude > 40000 {
             set ascentStatus to true.
-            set gravityTurnStatus to false.
         }
+
+        wait 0.01.
     }
 
     function ascentCompleted {
-        if ascentStatus = true {
-            wait 0.5.
-            return true.
-        }
+        return ascentStatus.
     }
 
     function completed { return ascentCompleted(). }
