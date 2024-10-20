@@ -5,7 +5,6 @@
 // ---------------------------------
 
 function terminalController {
-
     global LaunchStatus to false.
     local terminalCountdown to 10.
     local abortMode to false.
@@ -14,11 +13,14 @@ function terminalController {
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
-    local TowerQD to ship:partsdubbed("QuickDisconnect").
+    // local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
+
+    // testing
+    lock throttle to 0.7.
 
     until LaunchStatus {
         wait 1.
-        set terminalCountdown to terminalCountdown -1.
+        set terminalCountdown to terminalCountdown - 1.
 
         when terminalCountdown = 5 then {
             for Engine in WaterDeluge {
@@ -54,6 +56,7 @@ function terminalController {
 
         when terminalCountdown = -1 then {
             if abortMode = true {
+                unlock throttle.
                 lock throttle to 0.
                 for Engine in BoosterEngines {
                     Engine:shutdown().
