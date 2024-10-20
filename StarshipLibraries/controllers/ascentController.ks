@@ -6,6 +6,8 @@
 
 function ascentController {
 
+    print "cock".
+
     local ascentStatus to false.
     local gravityTurnStatus to false.
 
