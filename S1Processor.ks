@@ -87,11 +87,13 @@ until LaunchStatus {
 
     if terminalCountdown = -2 {
         OLMSeparation:getmodule("ModuleAnimateGeneric"):doevent("close clamps + qd").
-        TowerQD:getmodule("ModuleSLEAnimate"):doevent("Full Retraction").
+        TowerQD:getmodule("ModuleSLESequentialAnimate"):doevent("Full Retraction").
         for Engine in WaterDeluge {
             Engine:shutdown().
         }
-        OLMSeparation:getmodule("ModuleDockingNode"):doevent("Undock").
+        for DockingPort in OLMSeparation {
+            DockingPort:undock().
+        }
         wait 0.01.
         set LaunchStatus to true.
     }
