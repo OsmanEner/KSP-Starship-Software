@@ -33,6 +33,9 @@ local WaterDeluge to ship:partsdubbed("WaterDeluge").
 
 wait until ag1.
 
+set LaunchStatus to false.
+set abortMode to false.
+
 until LaunchStatus {
     wait 1.
     print terminalCountdown.
@@ -58,15 +61,10 @@ until LaunchStatus {
 
     if terminalCountdown = 0 {
         for Engine in BoosterEngines {
-            if Engine:ignition = true {
-                set LaunchStatus to true.
-            } else if Engine:ignition = false {
+            if Engine:ignition = false or Engine:thrust < 6539 {
+                set LaunchStatus to false.
                 set abortMode to true.
-            }
-            if Engine:thrust > 6539 {
-                set LaunchStatus to true.
-            } else if Engine:thrust < 6539 {
-                set abortMode to true.
+                break.  // Exit the loop early if any engine fails
             }
         }
     }
