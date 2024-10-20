@@ -29,14 +29,6 @@ local WaterDeluge to ship:partsdubbed("WaterDeluge").
 local OLMSeparation to ship:partsdubbed("DSS").
 local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
 
-function terminalComplete {
-    if LaunchStatus = true {
-        wait 0.01.
-        return true.
-    }
-    return false.
-}
-
 // ---------------------------------
 // Super Heavy Ascent Modes
 // ---------------------------------
@@ -100,11 +92,12 @@ until LaunchStatus {
             Engine:shutdown().
         }
         OLMSeparation:getmodule("ModuleDockingNode"):doevent("Undock").
+        wait 0.01.
         set LaunchStatus to true.
     }
 }
 
-wait until terminalComplete().
+wait until LaunchStatus.
 
 local ascentMode is ascentController().
 wait until ascentMode["completed"]().
