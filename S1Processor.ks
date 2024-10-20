@@ -91,9 +91,7 @@ until LaunchStatus {
         for Engine in WaterDeluge {
             Engine:shutdown().
         }
-        for DockingPort in OLMSeparation {
-            DockingPort:undock().
-        }
+        OLMSeparation:getmodule("DockingPort"):doevent("undock").
         wait 0.01.
         set LaunchStatus to true.
     }
