@@ -26,8 +26,6 @@ lock steering to heading(36, 90, 36).
 
 local BoosterEngines to ship:partstagged("BoosterCluster").
 local WaterDeluge to ship:partsdubbed("WaterDeluge").
-local OLMSeparation to ship:partsdubbed("DSS").
-local TowerQD to ship:partsdubbed("QuickDisconnect"). 
 
 // ---------------------------------
 // Super Heavy Ascent Modes
@@ -86,12 +84,10 @@ until LaunchStatus {
     }
 
     if terminalCountdown = -2 {
-        OLMSeparation:getmodule("ModuleAnimateGeneric"):doevent("close clamps + qd").
-        TowerQD:getmodule("ModuleSLESequentialAnimate"):doevent("Full Retraction").
         for Engine in WaterDeluge {
             Engine:shutdown().
         }
-        OLMSeparation:getmodule("DockingPort"):doevent("undock").
+        toggle ag2.
         wait 0.01.
         set LaunchStatus to true.
     }
