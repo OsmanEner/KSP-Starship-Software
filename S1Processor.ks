@@ -22,14 +22,17 @@ importLib("S1_Telemetry_Data").
 // ---------------------------------
 
 global terminalMode is terminalController().
+terminalController().
 lock throttle to 0.7.
 wait until terminalMode["completed"]().
 
 global ascentMode is ascentController().
+ascentController().
 lock throttle to 0.7.
 wait until ascentMode["completed"]().
 
 global hotstageMode is stagingController().
+stagingController().
 lock throttle to 0.7.
 wait until hotstageMode["completed"]().
 
