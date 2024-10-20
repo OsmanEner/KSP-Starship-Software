@@ -2,6 +2,8 @@
 // Mechazilla Flight Software
 // ---------------------------------
 
+clearscreen.
+
 // ("[SpaceX] Integrated Flight 1 Base"). vessel name
 
 // ---------------------------------

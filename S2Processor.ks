@@ -2,6 +2,8 @@
 // Starship Flight Software
 // ---------------------------------
 
+clearscreen.
+
 runoncepath("0:/StarshipLibraries/utilities/importLib").
 importLib("tguidanceController").
 

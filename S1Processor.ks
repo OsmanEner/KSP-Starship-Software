@@ -2,6 +2,8 @@
 // Stage 1 Super Heavy Software
 // ---------------------------------
 
+clearscreen.
+
 runoncepath("0:/StarshipLibraries/utilities/importLib").
 importLib("landingDataModel").
 importLib("hoverSlamModel").
