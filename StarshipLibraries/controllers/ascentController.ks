@@ -27,9 +27,10 @@ function ascentController {
     set gravityTurnStatus to true.
     set steeringManager:maxstoppingtime to 2.
 
-    if gravityTurnStatus = true {
+    until gravityTurnStatus = true {
         wait 0.01.
         set pitchAim to (max(finalPitch, 90 * (1 - (ship:altitude / endAlt)))).
+        print pitchAim.
 
         lock steering to heading (90,pitchAim,-90).
 
