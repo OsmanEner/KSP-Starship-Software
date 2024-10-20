@@ -14,8 +14,6 @@ importLib("stagingController").
 importLib("tguidanceController").
 importLib("boostbackController").
 
-importLib("S1_Telemetry_Data").
-
 // ---------------------------------
 // Terminal Countdown Controller
 // ---------------------------------
@@ -28,7 +26,8 @@ lock steering to heading(36, 90, 36).
 
 local BoosterEngines to ship:partstagged("BoosterCluster").
 local WaterDeluge to ship:partsdubbed("WaterDeluge").
-// local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
+local OLMSeparation to ship:partsdubbed("DSS").
+local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
 
 function terminalComplete {
     if LaunchStatus = true {
@@ -49,6 +48,7 @@ until LaunchStatus {
     set terminalCountdown to terminalCountdown - 1.
 
     if terminalCountdown = 5 {
+        lock throttle to 0.7.
         for Engine in WaterDeluge {
             Engine:activate().
         }
@@ -94,19 +94,19 @@ until LaunchStatus {
     }
 
     if terminalCountdown = -2 {
-        // TODO: qd and bqd retraction
-        set LaunchStatus to true.
+        OLMSeparation:getmodule("ModuleAnimateGeneric"):doevent("close clamps + qd").
+        TowerQD:getmodule("ModuleSLEAnimate"):doevent("Full Retraction").
         for Engine in WaterDeluge {
             Engine:shutdown().
         }
+        OLMSeparation:getmodule("ModuleDockingNode"):doevent("Undock").
+        set LaunchStatus to true.
     }
 }
 
-lock throttle to 0.7.
 wait until terminalComplete().
 
 local ascentMode is ascentController().
-lock throttle to 0.7.
 wait until ascentMode["completed"]().
 
 local hotstageMode is stagingController().
