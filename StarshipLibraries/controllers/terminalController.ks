@@ -5,9 +5,9 @@
 // ---------------------------------
 
 function terminalController {
-    declare global LaunchStatus to false.
-    declare global terminalCountdown to 10.
-    declare global abortMode to false.
+    local LaunchStatus to false.
+    local terminalCountdown to 10.
+    local abortMode to false.
 
     lock steering to heading(36, 90, 36).
 
