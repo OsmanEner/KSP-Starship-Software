@@ -40,7 +40,7 @@ until LaunchStatus {
     set terminalCountdown to terminalCountdown - 1.
 
     if terminalCountdown = 5 {
-        lock throttle to 0.7.
+        set ship:control:pilotmainthrottle to 0.7.
         for Engine in WaterDeluge {
             Engine:activate().
         }
