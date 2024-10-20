@@ -14,7 +14,7 @@ function terminalController {
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
-    // local TowerQD to ship:partsdubbed("QuickDisconnect").
+    local TowerQD to ship:partsdubbed("QuickDisconnect").
 
     until LaunchStatus {
         wait 1.
@@ -65,7 +65,7 @@ function terminalController {
         }
 
         when terminalCountdown = -2 then {
-            // TO DO: qd and bqd retraction
+            // TODO: qd and bqd retraction
             set LaunchStatus to true.
             for Engine in WaterDeluge {
                 Engine:shutdown().
@@ -80,9 +80,7 @@ function terminalController {
         }
     }
 
-    function completed { return terminalComplete(). }
-
     return lexicon(
-        "completed", completed@
+        "completed", terminalComplete@
     ).
 }
