@@ -56,21 +56,6 @@ until LaunchStatus {
         }
     }
 
-    if terminalCountdown = 0 {
-        for Engine in BoosterEngines {
-            if Engine:ignition = true {
-                set LaunchStatus to true.
-            } else if Engine:ignition = false {
-                set abortMode to true.
-            }
-            if Engine:thrust > 6539 {
-                set LaunchStatus to true.
-            } else if Engine:thrust < 6539 {
-                set abortMode to true.
-            }
-        }
-    }
-
     if terminalCountdown = -1 {
         if abortMode = true {
             unlock throttle.
