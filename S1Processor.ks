@@ -21,9 +21,15 @@ importLib("S1_Telemetry_Data").
 // Super Heavy Ascent Modes
 // ---------------------------------
 
+global terminalMode is terminalController(). // Test
+
 wait until ag1.
 
-global terminalMode is terminalController().
+until terminalMode["completed"]() {
+    // Testing some more
+    wait 1.
+}
+
 if terminalMode["completed"]() {
     print "Terminal countdown completed successfully.".
     lock throttle to 0.7.
