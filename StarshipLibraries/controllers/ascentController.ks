@@ -20,14 +20,16 @@ function ascentController {
 
     lock steering to heading(36, 89, 36).
 
-    wait until ship:altitude > 800.
+    wait until ship:altitude > 400.
     lock steering to heading (90,90,-90).
-    set steeringManager:maxstoppingtime to 2.
+    set steeringManager:maxstoppingtime to 15.
+    wait 2.
     set gravityTurnStatus to true.
+    set steeringManager:maxstoppingtime to 2.
 
     if gravityTurnStatus = true {
-        set pitchAim to (max(finalPitch, 90 * (1 - (ship:altitude / endAlt)))).
         wait 0.01.
+        set pitchAim to (max(finalPitch, 90 * (1 - (ship:altitude / endAlt)))).
 
         lock steering to heading (90,pitchAim,-90).
 
