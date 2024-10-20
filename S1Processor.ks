@@ -32,7 +32,7 @@ lock throttle to 0.7.
 wait until ascentMode["completed"]().
 
 global hotstageMode is stagingController().
-lock throttle to 0.7.
+lock throttle to 0.4.
 wait until hotstageMode["completed"]().
 
 
