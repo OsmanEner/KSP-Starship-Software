@@ -86,7 +86,7 @@ set LANDING_SITE to latlng(-0.260225864690855, -74.5053157223163).
 set BOOSTBACK_SWITCH_THRESHOLD to 85.
 set LQMethaneCutoff to 11000.
 set CatchVerticalSpeed to -0.3.
-set BoosterHeight to 46.8 + 45. // first number is actual booster height (without HSR), second number is desired landing altitude.
+set BoosterHeight to 46.8 + 35. // first number is actual booster height (without HSR), second number is desired landing altitude.
 // VERY HACKY, to be fixed either pre-flight if really possible, or can be fixed on flight 2, since it isn't gonna directly
 // cause issues, but can be tricky to work with in the future, especially for rewrites.
 // Additionally, it's supposed to be a constant, making it weird to work with IN GENERAL...
