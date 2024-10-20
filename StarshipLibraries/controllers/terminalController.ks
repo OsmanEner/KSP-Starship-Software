@@ -6,7 +6,7 @@
 
 function terminalController {
     global LaunchStatus to false.
-    local terminalCountdown to 10.
+    global terminalCountdown to 10.
     local abortMode to false.
 
     lock steering to heading(36, 90, 36).
