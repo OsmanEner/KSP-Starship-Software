@@ -5,18 +5,15 @@
 // ---------------------------------
 
 function terminalController {
-    global LaunchStatus to false.
-    global terminalCountdown to 10.
-    local abortMode to false.
+    declare global LaunchStatus to false.
+    declare global terminalCountdown to 10.
+    declare global abortMode to false.
 
     lock steering to heading(36, 90, 36).
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
     // local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
-
-    // testing
-    lock throttle to 0.7.
 
     until LaunchStatus {
         wait 1.
@@ -78,7 +75,7 @@ function terminalController {
 
     function terminalComplete {
         if LaunchStatus = true {
-            wait 0.5.
+            wait 0.01.
             return true.
         }
     }
