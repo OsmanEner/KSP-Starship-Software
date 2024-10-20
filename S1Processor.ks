@@ -24,8 +24,14 @@ importLib("S1_Telemetry_Data").
 wait until ag1.
 
 global terminalMode is terminalController().
-lock throttle to 0.7.
-wait until terminalMode["completed"]().
+if terminalMode["completed"]() {
+    print "Terminal countdown completed successfully.".
+    lock throttle to 0.7.
+} else {
+    print "Terminal countdown aborted or failed.".
+}
+
+// TODO : Remove prints for debug once figured out.
 
 global ascentMode is ascentController().
 lock throttle to 0.7.
