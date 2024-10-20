@@ -207,7 +207,7 @@ function BoostbackPhase {
 
     local boostbackEngineSwitched to false.
     when boostback["getStatus"]() >= BOOSTBACK_SWITCH_THRESHOLD and not boostbackEngineSwitched then {
-        boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("next engine mode", true).
+        boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("next engine mode", true). // 3 engines
         set boostbackEngineSwitched to true.
         set SteeringManager:ROLLCONTROLANGLERANGE to 10.
     }
@@ -217,8 +217,7 @@ function BoostbackPhase {
     set SteeringManager:ROLLCONTROLANGLERANGE to 180.
 
     // Switch engines
-    boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("next engine mode", true).
-    boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("next engine mode", true).
+    boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true). // 13 engines
 
     // Methane management
     local methaneResource is 0.
