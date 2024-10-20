@@ -41,7 +41,7 @@ wait until hotstageMode["completed"]().
 // ---------------------------------
 
 // Constants and initial setup
-set LANDING_SITE to latlng(-0.0972080884740584, -74.5576970966038).
+set LANDING_SITE to latlng(-0.260225864690855, -74.5053157223163).
 set BOOSTBACK_SWITCH_THRESHOLD to 85.
 set LQMethaneCutoff to 11000.
 set CatchVerticalSpeed to -0.3.
