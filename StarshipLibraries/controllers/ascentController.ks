@@ -31,7 +31,6 @@ function ascentController {
 
         if gravityTurnStatus {
             set pitchAim to max(finalPitch, 90 * (1 - (ship:altitude / endAlt))).
-            print "Pitch: " + round(pitchAim, 2) at (0, 1).
             lock steering to heading(90, pitchAim, -90).
         }
 
