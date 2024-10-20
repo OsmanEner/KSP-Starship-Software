@@ -39,6 +39,7 @@ function libImportManager {
         }
 
         runpath(filePath).
+        //print filePath:tostring() + " initialized".
         return true.
     }
 
