@@ -5,9 +5,9 @@
 // ---------------------------------
 
 function terminalController {
-    global LaunchStatus to false.
-    local terminalCountdown to 10.
-    local abortMode to false.
+    declare global LaunchStatus to false.
+    declare global terminalCountdown to 10.
+    declare global abortMode to false.
 
     lock steering to heading(36, 90, 36).
 
@@ -15,12 +15,9 @@ function terminalController {
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
     // local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
 
-    // testing
-    lock throttle to 0.7.
-
-    until LaunchStatus {
+    until LaunchStatus = true {
         wait 1.
-        set terminalCountdown to terminalCountdown - 1.
+        lock terminalCountdown to terminalCountdown - 1.
 
         when terminalCountdown = 5 then {
             for Engine in WaterDeluge {
