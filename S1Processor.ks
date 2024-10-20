@@ -12,110 +12,27 @@ importLib("landingController").
 importLib("ascentController").
 importLib("stagingController").
 importLib("tguidanceController").
-//importLib("terminalController").
+importLib("terminalController").
 importLib("boostbackController").
 
 importLib("S1_Telemetry_Data").
 
 // ---------------------------------
-// Integrated Terminal Controller
-// ---------------------------------
-
-global LaunchStatus is false.
-local terminalCountdown is 10.
-local abortMode is false.
-
-lock steering to heading(36, 90, 36).
-
-local BoosterEngines is ship:partstagged("BoosterCluster").
-local WaterDeluge is ship:partsdubbed("WaterDeluge").
-
-function runTerminalCountdown {
-    until LaunchStatus or abortMode {
-        print "T-" + terminalCountdown.
-        wait 1.
-        set terminalCountdown to terminalCountdown - 1.
-
-        if terminalCountdown = 5 {
-            print "Activating Water Deluge System".
-            for Engine in WaterDeluge {
-                Engine:activate().
-            }
-        }
-
-        if terminalCountdown = 2 {
-            print "Igniting Booster Engines".
-            for Engine in BoosterEngines {
-                Engine:activate().
-            }
-            for part in BoosterEngines {
-                part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
-                wait 0.1.
-                part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
-            }
-        }
-
-        if terminalCountdown = 0 {
-            print "Checking Engine Status".
-            for Engine in BoosterEngines {
-                if Engine:ignition = false or Engine:thrust < 6539 {
-                    set abortMode to true.
-                    break.
-                }
-            }
-            if not abortMode {
-                set LaunchStatus to true.
-            }
-        }
-
-        if terminalCountdown <= -1 and abortMode {
-            print "ABORT: Engine Failure Detected".
-            lock throttle to 0.
-            for Engine in BoosterEngines {
-                Engine:shutdown().
-            }
-            for Engine in WaterDeluge {
-                Engine:shutdown().
-            }
-            break.
-        }
-
-        if terminalCountdown = -2 and not abortMode {
-            print "Liftoff Successful. Shutting down Water Deluge".
-            for Engine in WaterDeluge {
-                Engine:shutdown().
-            }
-            break.
-        }
-    }
-}
-
-// ---------------------------------
 // Super Heavy Ascent Modes
 // ---------------------------------
 
-print "Waiting for AG1.".
 wait until ag1.
-set LaunchStatus to true.
-print "AG1 activated.".
 
-runTerminalCountdown().
-
-if LaunchStatus {
-    print "Terminal countdown completed successfully.".
-    lock throttle to 0.7.
-} else {
-    print "Terminal countdown aborted or failed.".
-}
-
-// TODO : Remove prints for debug once figured out.
+global terminalMode is terminalController().
+lock throttle to 0.7.
+wait until terminalMode["completed"]().
 
 global ascentMode is ascentController().
 lock throttle to 0.7.
 wait until ascentMode["completed"]().
 
 global hotstageMode is stagingController().
-lock throttle to 0.4.
+lock throttle to 0.7.
 wait until hotstageMode["completed"]().
 
 
@@ -124,7 +41,7 @@ wait until hotstageMode["completed"]().
 // ---------------------------------
 
 // Constants and initial setup
-set LANDING_SITE to latlng(-0.260225864690855, -74.5053157223163).
+set LANDING_SITE to latlng(-0.0972080884740584, -74.5576970966038).
 set BOOSTBACK_SWITCH_THRESHOLD to 85.
 set LQMethaneCutoff to 11000.
 set CatchVerticalSpeed to -0.3.
