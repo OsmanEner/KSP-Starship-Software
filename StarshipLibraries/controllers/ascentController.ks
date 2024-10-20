@@ -18,7 +18,7 @@ function ascentController {
     set steeringManager:maxstoppingtime to 20.
     set steeringManager:TORQUEEPSILONMAX to 0.05.
 
-    lock steering to heading(36, 89, 36).
+    lock steering to heading(20, 89, 20).
 
     wait until ship:altitude > 400.
     lock steering to heading (90,90,-90).
