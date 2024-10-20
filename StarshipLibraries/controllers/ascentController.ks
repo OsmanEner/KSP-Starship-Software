@@ -6,7 +6,6 @@
 
 function ascentController {
 
-    print "cock".
 
     local ascentStatus to false.
     local gravityTurnStatus to false.
@@ -18,9 +17,6 @@ function ascentController {
 
     set steeringManager:maxstoppingtime to 20.
     set steeringManager:TORQUEEPSILONMAX to 0.05.
-
-    wait until ship:altitude > 85.
-    lock steering to heading(36, 81, 36).
 
     wait until ship:altitude > 800.
     lock steering to heading (90,90,-90).
