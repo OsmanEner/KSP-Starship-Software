@@ -39,7 +39,7 @@ until LaunchStatus {
     set terminalCountdown to terminalCountdown - 1.
 
     if terminalCountdown = 5 {
-        set ship:control:pilotmainthrottle to 0.7.
+        set ship:control:pilotmainthrottle to 0.9.
         for Engine in WaterDeluge {
             Engine:activate().
         }
@@ -81,7 +81,7 @@ until LaunchStatus {
 
 wait until LaunchStatus.
 
-set ship:control:pilotmainthrottle to 0.7.
+set ship:control:pilotmainthrottle to 0.9.
 
 local ascentMode is ascentController().
 wait until ascentMode["completed"]().
