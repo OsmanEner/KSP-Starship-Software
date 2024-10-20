@@ -20,9 +20,6 @@ importLib("boostbackController").
 
 local LaunchStatus to false.
 local terminalCountdown to 10.
-local abortMode to false.
-
-lock steering to heading(36, 90, 36).
 
 local BoosterEngines to ship:partstagged("BoosterCluster").
 local WaterDeluge to ship:partsdubbed("WaterDeluge").
@@ -53,19 +50,6 @@ until LaunchStatus {
             part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
             wait 1.
             part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
-        }
-    }
-
-    if terminalCountdown = -1 {
-        if abortMode = true {
-            unlock throttle.
-            lock throttle to 0.
-            for Engine in BoosterEngines {
-                Engine:shutdown().
-            }
-            for Engine in WaterDeluge {
-                Engine:shutdown().
-            }
         }
     }
 
