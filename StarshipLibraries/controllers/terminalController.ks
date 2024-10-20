@@ -6,7 +6,7 @@
 
 function terminalController {
 
-    declare global LaunchStatus to false.
+    global LaunchStatus to false.
     local terminalCountdown to 10.
     local abortMode to false.
 
@@ -14,9 +14,9 @@ function terminalController {
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
-    local TowerQD to ship:partsdubbed("QuickDisconnect").
+    // local TowerQD to ship:partsdubbed("QuickDisconnect").
 
-    until LaunchStatus = true {
+    until LaunchStatus {
         wait 1.
         set terminalCountdown to terminalCountdown -1.
 
