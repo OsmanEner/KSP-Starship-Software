@@ -37,6 +37,7 @@ until LaunchStatus {
 
     if terminalCountdown = 5 {
         set ship:control:pilotmainthrottle to 0.9.
+        lock steering to heading(36, 90, 36).
         for Engine in WaterDeluge {
             Engine:activate().
         }
