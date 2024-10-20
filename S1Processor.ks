@@ -21,8 +21,6 @@ importLib("S1_Telemetry_Data").
 // Super Heavy Ascent Modes
 // ---------------------------------
 
-wait until ag1.
-
 global terminalMode is terminalController().
 lock throttle to 0.7.
 wait until terminalMode["completed"]().
