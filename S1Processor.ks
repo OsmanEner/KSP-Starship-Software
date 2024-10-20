@@ -193,7 +193,6 @@ function MainProgram {
 }
 
 function BoostbackPhase {
-    boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("next engine mode", true).
     rcs on.
 
     // Boostback adapter steering manager
@@ -203,6 +202,7 @@ function BoostbackPhase {
     local boostback is boostbackController(landingData, 5, 1000, 0.6).
     lock steering to boostback["getSteering"]().
     wait 4. // Safety wait
+    boosterEngines[0]:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true). // 13 engines
     lock throttle to boostback["getThrottle"]().
 
     local boostbackEngineSwitched to false.
