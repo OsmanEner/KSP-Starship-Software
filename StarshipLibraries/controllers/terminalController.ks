@@ -80,7 +80,9 @@ function terminalController {
         }
     }
 
+    function completed { return terminalComplete(). }
+
     return lexicon(
-        "completed", terminalComplete@
+        "completed", completed@
     ).
 }
