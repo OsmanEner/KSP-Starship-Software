@@ -96,6 +96,7 @@ function runTerminalCountdown {
 
 print "Waiting for AG1.".
 wait until ag1.
+set LaunchStatus to true.
 print "AG1 activated.".
 
 runTerminalCountdown().
