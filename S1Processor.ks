@@ -27,7 +27,7 @@ lock steering to heading(36, 90, 36).
 local BoosterEngines to ship:partstagged("BoosterCluster").
 local WaterDeluge to ship:partsdubbed("WaterDeluge").
 local OLMSeparation to ship:partsdubbed("DSS").
-local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
+local TowerQD to ship:partsdubbed("QuickDisconnect"). 
 
 // ---------------------------------
 // Super Heavy Ascent Modes
