@@ -35,6 +35,7 @@ wait until ag1.
 
 until LaunchStatus {
     wait 1.
+    print terminalCountdown.
     set terminalCountdown to terminalCountdown - 1.
 
     if terminalCountdown = 5 {
