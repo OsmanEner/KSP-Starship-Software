@@ -73,7 +73,7 @@ wait until ascentMode["completed"]().
 
 set ship:control:pilotmainthrottle to 0.4.
 
-local hotstageMode is stagingController()..
+local hotstageMode is stagingController().
 wait until hotstageMode["completed"]().
 
 
