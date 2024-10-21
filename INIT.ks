@@ -45,3 +45,5 @@ WAIT 0.001. // See paragraph above: "wait between load and pack changes"
 SET KUNIVERSE:DEFAULTLOADDISTANCE:PRELAUNCH:PACK TO 300000.
 SET KUNIVERSE:DEFAULTLOADDISTANCE:PRELAUNCH:UNPACK TO 299999.
 WAIT 0.001. // See paragraph above: "wait between load and pack changes"
+
+until false.
