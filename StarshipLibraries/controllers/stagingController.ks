@@ -52,7 +52,12 @@ function stagingController {
 
     function completed { return hotstagingComplete(). }
 
+    function passControl {
+
+        wait until completed().
+
     return lexicon(
-        "passControl", completed@
-    ).
+    "passControl", passControl@,
+    "completed", completed@
+    ).}
 }

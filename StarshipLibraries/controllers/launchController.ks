@@ -82,7 +82,12 @@ function launchController {
 
     function completed { return terminalComplete(). }
 
+    function passControl {
+
+        wait until completed().
+
     return lexicon(
-        "passControl", completed@
-    ).
+    "passControl", passControl@,
+    "completed", completed@
+    ).}
 }

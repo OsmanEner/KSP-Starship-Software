@@ -47,7 +47,12 @@ function ascentController {
 
     function completed { return ascentCompleted(). }
 
+    function passControl {
+
+        wait until completed().
+
     return lexicon(
-        "passControl", completed@
-    ).
+    "passControl", passControl@,
+    "completed", completed@
+    ).}
 }
