@@ -27,9 +27,8 @@ set shipGuidance to false.
 local function runAscentSequence {
 
     local hotstageMode is stagingController().
-    wait until hotstageMode["passControl"]().
+    hotstageMode["passControl"]().
 
-    wait until shipGuidance = true.
 
     local shiprunmode is terminalController().
     shiprunmode["passControl"]().
