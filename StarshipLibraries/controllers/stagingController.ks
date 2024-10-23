@@ -49,11 +49,14 @@ function stagingController {
     function completed { return hotstagingComplete(). }
 
     function passControl {
-
+        parameter isUnlocking is true.
         wait until completed().
+        
+        if isUnlocking { unlock throttle. unlock steering. }
+    }
 
     return lexicon(
     "passControl", passControl@,
     "completed", completed@
-    ).}
+    ).
 }
