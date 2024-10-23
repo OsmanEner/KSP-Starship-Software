@@ -13,7 +13,7 @@ local function runShipGuidance {
     shiprunmode["passControl"]().
 }
 
-set ShipGuidance to false.
+global ShipGuidance to false.
 
 // Main program execution
 function main {
@@ -21,7 +21,11 @@ function main {
 }
 
 // Catch ship guidance toggle message
-// TO IMPLEMENT
+when not ship:messages:empty then {
+    set received to ship:messages:pop.
+    print received:content. // Maybe not needed in future flights, since we should always get the message.
+    set ShipGuidance to true.
+}
 
 when shipGuidance then { main(). }
 

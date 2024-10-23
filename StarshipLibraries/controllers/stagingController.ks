@@ -51,6 +51,17 @@ function stagingController {
     function passControl {
         parameter isUnlocking is true.
         wait until completed().
+
+        // Tell the ship to start execution of it's own software.
+        local CatchCommunications to processor("ShipFlightController"). // TODO: Set to ship's actual CPU name.
+        local EstablishCatchCommunications to CatchCommunications:connection.
+        local message to "Arms".
+
+            if EstablishCatchCommunications:isconnected {
+                if EstablishCatchCommunications:sendmessage(message) {
+                    print message.
+            }
+        }
         
         if isUnlocking { unlock throttle. unlock steering. }
     }
