@@ -6,39 +6,25 @@
 clearscreen.
 runoncepath("0:/StarshipLibraries/utilities/importLib").
 
-local function importRequiredLibraries {
-    local requiredLibs is list(
-        "stagingController",
-        "tguidanceController"
-    ).
-    
-    for lib in requiredLibs {
-        importLib(lib).
-    }
-}
+importLib("tguidanceController").
 
-
-// Configuration
-
-set shipGuidance to false.
-
-// Ascent Sequence
-
-local function runAscentSequence {
-
-    local hotstageMode is stagingController().
-    hotstageMode["passControl"]().
-
-
-    local shiprunmode is terminalController().
+local function runShipGuidance {
+    local shiprunmode is terminalGuidanceController().
     shiprunmode["passControl"]().
 }
 
-// Main program execution
+set ShipGuidance to false.
 
+// Main program execution
 function main {
-    importRequiredLibraries().
-    runAscentSequence().
+    runShipGuidance().
 }
 
+// Catch ship guidance toggle message
+// TO IMPLEMENT
+
+when shipGuidance then { main(). }
+
+// This gets executed after main is finished,
+// since passControl halts to itself until the shiprunmode is complete.
 until false.
