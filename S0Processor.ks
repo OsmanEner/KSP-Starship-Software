@@ -31,3 +31,5 @@ when not ship:messages:empty then {
 }
 
 until false.
+
+//TODO : Water deluge when booster sends arm event :)
