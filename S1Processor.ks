@@ -41,7 +41,7 @@ local function initializeSteeringManager {
 local function runAscentSequence {
     wait until ag1.
     
-    local terminalCountMode is terminalCountController().
+    local terminalCountMode is launchController().
     terminalCountMode["passControl"]().
     
     local ascentMode is ascentController().

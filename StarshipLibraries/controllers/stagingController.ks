@@ -53,6 +53,6 @@ function stagingController {
     function completed { return hotstagingComplete(). }
 
     return lexicon(
-        "completed", completed@
+        "passControl", completed@
     ).
 }

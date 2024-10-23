@@ -54,6 +54,6 @@ function terminalController {
     function completed { return terminalComplete(). }
 
     return lexicon(
-        "completed", completed@
+        "passControl", completed@
     ).
 }

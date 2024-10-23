@@ -4,7 +4,7 @@
 // Terminal Countdown Controller
 // ---------------------------------
 
-function terminalController {
+function launchController {
     local LaunchStatus to false.
     local terminalCountdown to 10.
     local abortMode to false.
@@ -83,6 +83,6 @@ function terminalController {
     function completed { return terminalComplete(). }
 
     return lexicon(
-        "completed", completed@
+        "passControl", completed@
     ).
 }

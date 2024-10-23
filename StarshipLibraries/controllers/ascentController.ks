@@ -48,6 +48,6 @@ function ascentController {
     function completed { return ascentCompleted(). }
 
     return lexicon(
-        "completed", completed@
+        "passControl", completed@
     ).
 }
