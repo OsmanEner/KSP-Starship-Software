@@ -4,7 +4,7 @@
 // Terminal Guidance Controller
 // ---------------------------------
 
-function terminalController {
+function terminalGuidanceController {
 
     local ShipAscentStatus to false.
 
@@ -52,11 +52,14 @@ function terminalController {
     function completed { return terminalComplete(). }
 
     function passControl {
+    parameter isUnlocking is true.
 
-        wait until completed().
+    wait until completed().
+    if isUnlocking { unlock throttle. unlock steering. }
+    }
 
     return lexicon(
     "passControl", passControl@,
     "completed", completed@
-    ).}
+    ).
 }
