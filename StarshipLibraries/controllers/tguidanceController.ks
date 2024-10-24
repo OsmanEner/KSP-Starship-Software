@@ -13,7 +13,6 @@ function terminalController {
 
     local targetApoapsis is 200000.
     local targetPeriapsis is 10000.
-    local maximumApoapsis is 250000.
     local minimumPeriapsis is -50000.
 
     lock steering to heading(90,0,-90).
@@ -21,7 +20,7 @@ function terminalController {
     until ShipAscentStatus = true {
         wait 0.5.
         if ship:apoapsis > targetApoapsis {
-            lock steering to heading(90,-10,-90).
+            lock steering to heading(90,-30,-90).
         }
         if ship:apoapsis < targetApoapsis {
             lock steering to heading(90,10,-90).
@@ -35,17 +34,16 @@ function terminalController {
         }
 
         if ship:apoapsis > targetApoapsis and ship:periapsis > targetPeriapsis {
-            set ShipAscentStatus to true.
-        } else if ship:apoapsis > maximumApoapsis {
+            for Engine in ShipSLEngines {
+                Engine:shutdown().
+            }
+            wait 0.5.
             set ShipAscentStatus to true.
         }
     }
 
     function terminalComplete {
         if ShipAscentStatus = true {
-            for Engine in ShipSLEngines {
-                Engine:shutdown().
-            }
             wait 0.5.
             return true.
         }
