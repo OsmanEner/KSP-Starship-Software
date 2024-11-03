@@ -7,7 +7,6 @@
 function launchController {
     local LaunchStatus to false.
     local terminalCountdown to 10.
-    local abortMode to false.
 
     lock throttle to 0.7.
     lock steering to heading(36, 90, 36).
@@ -39,11 +38,11 @@ function launchController {
         }
 
         when terminalCountdown = -2 then {
-            toggle ag2.
             set LaunchStatus to true.
             for Engine in WaterDeluge {
                 Engine:shutdown().
             }
+            toggle ag2.
         }
     }
 
