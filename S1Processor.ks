@@ -12,8 +12,7 @@ local function importRequiredLibraries {
         "ascentController",
         "stagingController",
         "landingDataModel",
-        "boostbackController",
-        "postBoostbackController"
+        "boostbackController"
     ).
     
     for lib in requiredLibs {

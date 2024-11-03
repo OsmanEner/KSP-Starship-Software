@@ -9,11 +9,11 @@ function launchController {
     local terminalCountdown to 10.
     local abortMode to false.
 
+    lock throttle to 0.7.
     lock steering to heading(36, 90, 36).
 
     local BoosterEngines to ship:partstagged("BoosterCluster").
     local WaterDeluge to ship:partsdubbed("WaterDeluge").
-    // local TowerQD to ship:partsdubbed("QuickDisconnect"). unused
 
     until LaunchStatus {
         wait 1.
