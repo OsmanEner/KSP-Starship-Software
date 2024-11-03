@@ -29,9 +29,11 @@ function launchController {
             for Engine in BoosterEngines {
                 Engine:activate().
             }
+        }
+
+        when terminalCountdown = -1 then {
             for part in BoosterEngines {
                 part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
-                wait 1.
                 part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
             }
         }
