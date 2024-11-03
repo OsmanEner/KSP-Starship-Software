@@ -28,19 +28,22 @@ function launchController {
             for Engine in BoosterEngines {
                 Engine:activate().
             }
+            for part in BoosterEngines {
+                part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
+            }
         }
 
         when terminalCountdown = -1 then {
             for part in BoosterEngines {
                 part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
-                part:getmodule("ModuleTundraEngineSwitch"):doaction("previous engine mode", true).
+                
+            }
+            for Engine in WaterDeluge {
+                Engine:shutdown().
             }
         }
 
         when terminalCountdown = -2 then {
-            for Engine in WaterDeluge {
-                Engine:shutdown().
-            }
             set LaunchStatus to true.
             toggle ag2.
         }
