@@ -38,10 +38,10 @@ function launchController {
         }
 
         when terminalCountdown = -2 then {
-            set LaunchStatus to true.
             for Engine in WaterDeluge {
                 Engine:shutdown().
             }
+            set LaunchStatus to true.
             toggle ag2.
         }
     }
