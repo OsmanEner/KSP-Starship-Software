@@ -8,11 +8,12 @@ runoncepath("0:/StarshipLibraries/utilities/importLib").
 
 local function importRequiredLibraries {
     local requiredLibs is list(
-        "terminalCountController",
+        "launchController",
         "ascentController",
         "stagingController",
         "landingDataModel",
-        "boostbackController"
+        "boostbackController",
+        "postBoostbackController"
     ).
     
     for lib in requiredLibs {
