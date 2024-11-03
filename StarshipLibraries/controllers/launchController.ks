@@ -36,36 +36,8 @@ function launchController {
             }
         }
 
-        when terminalCountdown = 0 then {
-            for Engine in BoosterEngines {
-                if Engine:ignition = true {
-                    return true.
-                } else if Engine:ignition = false {
-                    set abortMode to true.
-                }
-                if Engine:thrust > 6539 {
-                    return true.
-                } else if Engine:thrust < 6539 {
-                    set abortMode to true.
-                }
-            }
-        }
-
-        when terminalCountdown = -1 then {
-            if abortMode = true {
-                unlock throttle.
-                lock throttle to 0.
-                for Engine in BoosterEngines {
-                    Engine:shutdown().
-                }
-                for Engine in WaterDeluge {
-                    Engine:shutdown().
-                }
-            }
-        }
-
         when terminalCountdown = -2 then {
-            // TODO: qd and bqd retraction
+            toggle ag2.
             set LaunchStatus to true.
             for Engine in WaterDeluge {
                 Engine:shutdown().
